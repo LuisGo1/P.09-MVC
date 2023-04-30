@@ -5,37 +5,95 @@
 
     @*Inicio del formulario *@
     <div class="form-group row mb-4">
-        <div class="form-group row mb-4">
             <div class="col-sm-2">
                 <label>Nombre</label>
-            </div>
-        </div>
-        <div class="form-group row mb-4">
+                </div>
+          
+        
             <div class="col-sm-4">
-                @Html.TextBox("nombre","nombre", new {@class="form-control"})
+                @Html.TextBox("nombre","", new {@class="form-control"})
             </div>
-        </div>
-        <div class="form-group row mb-4">
+        
             <div class="col-sm-2">
                 @Html.Label("lblDescripcion","Descripción")
             </div>
-        </div>
-        <div class="form-group row mb-4">
+        </>
+       
             <div class="col-sm-4">
-                @Html.TextArea("descripcion", "", new {@class="form-control", @placeHolder="Ingrese la descripción"})
+                @Html.TextArea("descripcion","", new {@class="form-control", @placeHolder="Ingrese la descripción"})
+            </div>
+        <div class="col-sm-2">
+            @Html.Label("lblDescripcion","Tipo de Equipo")
+        </div>
+      
+            <div class="col-sm-4">
+                @Html.DropDownList("marca_id", ViewData["listadodeMarcas"] as SelectList,"Seleccione un Tipo",new {@class="form-control"})
+          
+            </div>
+
+
+        <div>
+            </div>
+        <div class="col-sm-2">
+            @Html.Label("lblDescripcion","Marca")
+        </div>
+        <div class="col-sm-4">
+            @Html.DropDownList("marca_id", ViewData["listadodeMarcas"] as SelectList,"Seleccione una Marca",new {@class="form-control"})
+        </div>
+        
+        </>
+        <div class="col-sm-2">
+            <label>Modelo</label>
+        </div>
+        <div class="col-sm-4">
+            @Html.TextBox("nombre","", new {@class="form-control"})
+        </div>
+
+        <div class="col-sm-2">
+            <label>Año de Compra</label>
+        </div>
+        <div class="col-sm-4">
+            @Html.TextBox("nombre","", new {@class="form-control"})
+        </div>
+
+        <div class="col-sm-2">
+            <label>Costo</label>
+        </div>
+
+        <div class="col-sm-4">
+            @Html.TextBox("nombre","", new {@class="form-control"})
+        </div>
+
+        <div class="col-sm-2">
+            <label>Vida Util</label>
+        </div>
+
+        <div class="col-sm-4">
+            @Html.TextBox("nombre","", new {@class="form-control"})
+            @Html.DropDownList("marca_id", ViewData["listadodeMarcas"] as SelectList,"Seleccione un Estado",new {@class="form-control"})
+            <div class="form-check form-check-inline">
+                @Html.CheckBox("Bailando")
+                <label class="form-check-label" for="inlineCheckbox1">Inactivo</label>
             </div>
         </div>
-        <div class="form-group row mb-4">
-            <div class="col-sm-4">
-                @Html.DropDownList("marca_id", ViewData["listadodeMarcas"]as SelectList , "Seleccione una marca", new {@class="form-control"})
+
+        <div class="col-sm-2">
+            @Html.Label("lblDescripcion","Estado de Equipo")
+        </div>
+
+        <div class="col-sm-4">
+          
+
             </div>
         </div>
-        <div class="form-group row mb-4">
-            <div class="col-sm-2"></div>
+         <div class="form-group row mb-4">
+         <div class="col-sm-2"></div>
             <div class="col-sm-4">
-                <input type="submit" class="btn btn-primary" value="Guardar" />
-            </div>
-        </div>
+            <input type="submit" class="btn btn-primary" value="Guardar" />
+             </div>
+         </div>
+   </div>
+        
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -50,12 +108,12 @@
                     <tr>
                         <td>@equipo.nombre</td>
                         <td>@equipo.descripcion</td>
-                        <td>@equipo-marca_nombre</td>
+                        <td>@equipo.marca_nombre</td>
                     </tr>
                 }
             </tbody>
         </table>
-    </div>
+    </>
     @*Fin del formulario  *@
 </form>
 @{
